@@ -1,9 +1,10 @@
 // ==UserScript==
 // @name         Reddit on Google Search
-// @version      1.0.0
+// @version      1.0.1
 // @description  Adds a button to search Reddit via Google Search
 // @author       Alexyoe
 // @namespace    https://github.com/Alexyoe/Reddit-on-Google-Search
+// @license      MIT
 // @include      http*://www.google.*/search*
 // @include      http*://google.*/search*
 // @run-at       document-end
@@ -59,6 +60,6 @@ if (typeof trustedTypes !== "undefined") {
   const buttonBox = document.querySelector(".TrmO7");
   buttonBox.classList.add("size-fix");
   const buttonBoxCSS = document.createElement("style");
-  buttonBoxCSS.innerHTML = ".size-fix { width: 100% !important; }";
+  buttonBoxCSS.innerHTML = ".size-fix { width: fit-content !important; }";
   document.head.appendChild(buttonBoxCSS);
 })();
