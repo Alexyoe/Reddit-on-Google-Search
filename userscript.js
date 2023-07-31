@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Reddit on Google Search
-// @version      1.0.3
+// @version      1.0.4
 // @description  Adds a button to search Reddit via Google Search
 // @author       Alexyoe
 // @namespace    https://github.com/Alexyoe/Reddit-on-Google-Search
@@ -12,6 +12,8 @@
 
 // Settings
 const iconVisible = true;
+const nameVisible = true;
+const btnPosition = "end"; // Start or End
 
 // Start Code
 const queryRegex = /q=[^&]+/g;
@@ -37,7 +39,7 @@ if (typeof trustedTypes !== "undefined") {
   if (iconVisible) {
     const span = document.createElement("span");
     span.className = isImageSearch ? "m3kSL" : "mUKzod";
-    span.style.cssText = "height:16px;width:16px;display:block";
+    span.style.cssText = nameVisible ? "height:16px;width:16px;display:block" : "height:16px;width:16px;display:block;margin:auto";
     span.innerHTML = redditIcon;
     el.appendChild(span);
   }
@@ -45,7 +47,9 @@ if (typeof trustedTypes !== "undefined") {
   // Create the div element for the text
   const link = document.createElement("div");
   link.textContent = "Reddit";
-  el.appendChild(link);
+  if (nameVisible) {
+    el.appendChild(link);
+  }
 
   // Add site:reddit.com to the query
   el.href = window.location.href.replace(queryRegex, (match) =>
@@ -60,7 +64,17 @@ if (typeof trustedTypes !== "undefined") {
     menuBar.insertBefore(el, menuBar.children[menuBar.childElementCount - 1]);
   } else {
     let menuBar = document.querySelectorAll(".nfdoRb")[1];
-    menuBar.appendChild(el);
+    switch (btnPosition) {
+      case "start":
+        menuBar.insertBefore(el, menuBar.children[0]);
+        break;
+      case "end":
+        menuBar.appendChild(el);
+        break
+      default:
+        menuBar.appendChild(el);
+        break;
+    }
   }
 
   // Fix Sizing

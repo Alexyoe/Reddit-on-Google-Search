@@ -18,9 +18,13 @@ The direct download link is here:
 
 ## Settings
 
-This userscript provides a settings section at the top of `userscript.js`, allowing you to easily enable or disable icons according to your preferences.
+This userscript provides a settings section at the top of `userscript.js`, allowing you to easily customize the script according to your preferences.
 
-To disable icons, simply change the variable `iconVisible` to `false`
+| Setting | Value | Description | Type |  
+|---|---|---|---|
+| iconVisible | true \| false | Show or hide icon | boolean |  
+| nameVisible | true \| false | Show or hide name | boolean |  
+| btnPosition | start \| end | Set position of button | string |  
 
 ## Credit
 
