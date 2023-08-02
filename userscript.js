@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Reddit on Google Search
-// @version      1.0.5
+// @version      1.0.6
 // @description  Adds a button to search Reddit via Google Search
 // @author       Alexyoe
 // @namespace    https://github.com/Alexyoe/Reddit-on-Google-Search
@@ -11,9 +11,10 @@
 // ==/UserScript==
 
 // Settings
-const iconVisible = true;
-const nameVisible = true;
+const iconVisible = true; // Toggle icon visibility
+const nameVisible = true; // Toggle name visibility
 const btnPosition = "end"; // Start or End
+const fixSize = false; // Expands the search buttons bar
 
 // Start Code
 const queryRegex = /q=[^&]+/g;
@@ -61,13 +62,19 @@ if (typeof trustedTypes !== "undefined") {
   }
   // Add textNode to the span element
   if (nameVisible) {
-    span.appendChild(textNode);
+    if (!isImageSearch) {
+      span.appendChild(textNode);
+    }
   }
 
   // Add span to the mainDiv
   mainDiv.appendChild(span);
   // Add mainDiv to the main link element
   el.appendChild(mainDiv);
+  // Add text node last if isImageSearch is true
+  if (isImageSearch) {
+    el.appendChild(textNode);
+  }
 
   // Add site:reddit.com to the query
   el.href = window.location.href.replace(queryRegex, (match) =>
@@ -96,6 +103,8 @@ if (typeof trustedTypes !== "undefined") {
   }
 
   // Fix Sizing
-  const buttonBox = document.querySelector(".xhjkHe");
-  buttonBox.style.width = "auto";
+  if (fixSize) {
+    const buttonBox = document.querySelector(".xhjkHe");
+    buttonBox.style.maxWidth = "inherit";
+  }
 })();
