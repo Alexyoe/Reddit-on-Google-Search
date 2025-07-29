@@ -21,15 +21,16 @@ The direct download link is here:
 This userscript provides a settings section at the top of `userscript.js`, allowing you to easily customize the script according to your preferences.
 
 ```
-+-------------+---------------+------------------------+---------+
-| Name        | Value         | Description            | Type    |
-+-------------+---------------+------------------------+---------+
-| iconVisible | true/false    | Show or hide icon      | boolean |
-+-------------+---------------+------------------------+---------+
-| nameVisible | true/false    | Show or hide name      | boolean |
-+-------------+---------------+------------------------+---------+
-| btnPosition | "start"/"end" | Set position of button | string  |
-+-------------+---------------+------------------------+---------+
++-------------+-------------------------+------------------------+---------+
+| Name        | Value                  | Description            | Type    |
++-------------+-------------------------+------------------------+---------+
+| iconVisible | true/false             | Show or hide icon      | boolean |
++-------------+-------------------------+------------------------+---------+
+| nameVisible | true/false             | Show or hide name      | boolean |
++-------------+-------------------------+------------------------+---------+
+| btnPosition | "start"/"end"/"afterai"| Set position of button | string  |
++-------------+-------------------------+------------------------+---------+
+
 ```
 
 ## Credit
