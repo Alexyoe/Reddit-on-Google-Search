@@ -2,7 +2,8 @@
 
 A lightweight UserScript that adds a "Reddit" button to your Google Search results, allowing you to quickly filter searches to reddit.com.
 
-![Img](screenshot.png)
+![Img](./screenshots/screenshot-2.png)
+![Img](./screenshots/screenshot-3.png)
 
 ---
 
@@ -61,5 +62,11 @@ This project is licensed under the [MIT License](https://opensource.org/licenses
 
 ## Credits
 
-- **Author**: [Alexyoe](https://github.com/Alexyoe)
+- **Author**: Made with ♥ by [Alexyoe](https://github.com/Alexyoe)
 - **Inspired by**: marioortizmanero’s [reddit-search-on-google](https://github.com/marioortizmanero/reddit-search-on-google)
+
+---
+
+## Donate
+
+If you find this script helpful, consider buying me a coffee on [Ko-fi](https://ko-fi.com/alexyoe).
