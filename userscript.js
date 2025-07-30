@@ -70,7 +70,7 @@ if (typeof trustedTypes !== "undefined") {
   const nav = Array.from(
     document.querySelectorAll('div[role="navigation"]')
   ).find((n) => n.querySelector('div[role="listitem"] a'));
-  if (!nav) return setTimeout(waitForNav, 200);
+  if (!nav) return setTimeout(waitForNav, 100);
 
   // Grab the first wrapper <div role="listitem"> that isn't selected or "AI Mode"
   const sampleItem = Array.from(
