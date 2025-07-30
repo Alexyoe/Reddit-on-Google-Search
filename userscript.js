@@ -51,7 +51,6 @@ if (typeof trustedTypes !== "undefined") {
     const text = item.textContent.trim();
     return !isSelected && text !== "AI Mode";
   });
-  console.log(sampleItem);
 
   if (!sampleItem) return; // bail if nothing there
 
