@@ -43,30 +43,39 @@ if (typeof trustedTypes !== "undefined") {
   ).find((n) => n.querySelector('div[role="listitem"] a'));
   if (!nav) return setTimeout(waitForNav, 200);
 
-  // 1) grab the first wrapper <div role="listitem">
-  const sampleItem = nav.querySelectorAll(':scope div[role="listitem"]');
+  // Grab the first wrapper <div role="listitem"> that isn't selected or "AI Mode"
+  const sampleItem = Array.from(
+    document.querySelectorAll('div[role="listitem"]')
+  ).find((item) => {
+    const isSelected = item.querySelector('[selected], [aria-current="page"]');
+    const text = item.textContent.trim();
+    return !isSelected && text !== "AI Mode";
+  });
+  console.log(sampleItem);
+
   if (!sampleItem) return; // bail if nothing there
 
-  // 2) clone the entire wrapper (this gives us <div role="listitem"><a>…</a></div>)
-  const newItem = sampleItem[2].cloneNode(true);
+  // Clone the entire wrapper
+  const newItem = sampleItem.cloneNode(true);
 
-  // 3) inside that clone, find the <a> (Google uses role="link")
+  // Inside that clone, find the <a>
   const btn = newItem.querySelector("a");
   btn.href = window.location.href.replace(queryRegex, (m) =>
     m.search(siteRegex) >= 0 ? m.replace(siteRegex, redditUrl) : m + redditUrl
   );
 
-  // find their inner div (jsname) or fallback to the <a>
+  // Find the inner div (jsname) or fallback to the <a>
   const inner = btn.querySelector("div[jsname]") || btn;
+
+  // Clear inner
+  inner.innerHTML = "";
 
   if (settings.displayMode === "label") {
     const textWrapper = document.createElement("span");
-    inner.innerHTML = "";
     textWrapper.textContent = "Reddit";
     textWrapper.className = "R1QWuf";
     inner.appendChild(textWrapper);
   } else {
-    inner.innerHTML = "";
     const iconWrapper = document.createElement("span");
     iconWrapper.className = "R1QWuf";
     iconWrapper.style.lineHeight = "17px";
@@ -74,7 +83,7 @@ if (typeof trustedTypes !== "undefined") {
     inner.appendChild(iconWrapper);
   }
 
-  // 4) insert the **wrapper** at the requested position
+  // Insert the wrapper at the selected position
   const first = nav.querySelector(':scope div[role="listitem"]');
   if (settings.btnPosition === "start") {
     first ? first.before(newItem) : nav.prepend(newItem);
