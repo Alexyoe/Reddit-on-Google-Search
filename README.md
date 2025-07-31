@@ -53,6 +53,19 @@ After saving, the page reloads to apply your new settings.
 
 ---
 
+## Support
+
+If you find this script helpful, consider buying me a coffee on [Ko-fi](https://ko-fi.com/alexyoe).
+
+---
+
+## Other User Scripts
+
+[Reddit-on-Google-Search](https://github.com/Alexyoe/Reddit-on-Google-Search)
+[Github-on-Google-Search](https://github.com/Alexyoe/Github-on-Google-Search)
+[Stackoverflow-on-Google-Search](https://github.com/Alexyoe/stackoverflow-on-google-search)
+
+---
 
 ## License
 
@@ -66,7 +79,3 @@ This project is licensed under the [MIT License](https://opensource.org/licenses
 - **Inspired by**: marioortizmanero’s [reddit-search-on-google](https://github.com/marioortizmanero/reddit-search-on-google)
 
 ---
-
-## Donate
-
-If you find this script helpful, consider buying me a coffee on [Ko-fi](https://ko-fi.com/alexyoe).
